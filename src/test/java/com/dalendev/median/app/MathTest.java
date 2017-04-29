@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class MathTest {
 
     @Test
-    public void should_find_median_normal_histogram() throws Exception {
+    public void should_find_median_normal_histogram() {
         Histogram histogram = new Histogram();
         histogram.addKey(5);
         histogram.addKey(5);
@@ -25,7 +25,7 @@ public class MathTest {
     }
 
     @Test
-    public void should_find_median_one_key_histogram() throws Exception {
+    public void should_find_median_one_key_histogram() {
         Histogram histogram = new Histogram();
         histogram.addKey(5);
         histogram.addKey(5);
@@ -43,11 +43,16 @@ public class MathTest {
     }
 
     @Test
-    public void should_find_median_empty_histogram() throws Exception {
+    public void should_find_median_empty_histogram() {
         Histogram histogram = new Histogram();
 
         Integer median = Math.findMedian(histogram);
         assertEquals(new Integer(0), median);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void should_throw_exception_null_histogram() {
+        Math.findMedian(null);
     }
 
 }
