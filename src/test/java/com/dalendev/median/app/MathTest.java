@@ -55,4 +55,17 @@ public class MathTest {
         Math.findMedian(null);
     }
 
+    @Test
+    public void should_find_median_unordered_histogram() {
+        Histogram histogram = new Histogram();
+        histogram.addKey(7);
+        histogram.addKey(200);
+        histogram.addKey(2000);
+        histogram.addKey(5);
+        histogram.addKey(6);
+
+        Integer median = Math.findMedian(histogram);
+        assertEquals(new Integer(7), median);
+    }
+
 }
