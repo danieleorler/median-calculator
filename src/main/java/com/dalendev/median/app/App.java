@@ -11,12 +11,10 @@ public class App {
     public static void main(String[] args) {
 
         Histogram histogram = new Histogram();
+        RollingMedianCalculator rollingMedianCalculator = new RollingMedianCalculator(histogram);
 
         Scanner stdin = new Scanner(System.in);
         String line;
-
-        RollingMedianCalculator rollingMedianCalculator = new RollingMedianCalculator(histogram);
-
         while(stdin.hasNextLine() && !(line = stdin.nextLine()).equals("")) {
             Pattern.compile("\\s*,\\s*")
                 .splitAsStream(line)
