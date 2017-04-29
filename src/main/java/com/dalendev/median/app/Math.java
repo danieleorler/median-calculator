@@ -1,8 +1,5 @@
 package com.dalendev.median.app;
 
-import java.util.Iterator;
-import java.util.Map;
-
 /**
  * @author daniele.orler
  */
@@ -18,22 +15,25 @@ public class Math {
             return 0;
         }
 
-        final Iterator<Map.Entry<Integer, Integer>> entryIterator = histogram.iterator();
-
         if(histogram.size() == 1) {
-            return entryIterator.next().getKey();
+            return histogram.getMin();
         }
 
-        final Integer size = histogram.size();
-        final Integer medianPos = size/2 + 1;
+        System.out.println(histogram.getPopulation());
+
+        final Integer population = histogram.getPopulation();
+        final Integer medianPos = population/2 + 1;
 
         Integer currentPos = 0;
         Integer median = 0;
+        Integer key = histogram.getMin();
 
-        while(currentPos < medianPos) {
-            Map.Entry<Integer, Integer> entry = entryIterator.next();
-            currentPos += entry.getValue();
-            median = entry.getKey();
+        while(key <= histogram.getMax() && currentPos < medianPos) {
+            if(histogram.containsKey(key)) {
+                currentPos += histogram.get(key);
+                median = key;
+            }
+            key++;
         }
 
         return median;

@@ -1,37 +1,43 @@
 package com.dalendev.median.app;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author daniele.orler
  */
-public class Histogram {
+public class Histogram extends HashMap<Integer, Integer> {
 
-    private final Map<Integer, Integer> storage;
-    private Integer size;
+    private Integer min;
+    private Integer max;
+    private Integer population;
 
     public Histogram() {
-        storage = new HashMap<Integer, Integer>();
-        size = 0;
+        max = 0;
+        min = Integer.MAX_VALUE;
+        population = 0;
     }
 
     public void addKey(Integer key) {
-        if(storage.containsKey(key)) {
-            storage.put(key, storage.get(key) + 1);
+        if(this.containsKey(key)) {
+            this.put(key, this.get(key) + 1);
         } else {
-            storage.put(key, 1);
+            this.put(key, 1);
         }
-        size++;
+
+        min = key < min ? key : min;
+        max = key > max ? key : max;
+        population++;
     }
 
-    public Integer size() {
-        return size;
+    public Integer getMin() {
+        return min;
     }
 
-    public Iterator<Map.Entry<Integer, Integer>> iterator() {
-        return storage.entrySet().iterator();
+    public Integer getMax() {
+        return max;
     }
 
+    public int getPopulation() {
+        return population;
+    }
 }
