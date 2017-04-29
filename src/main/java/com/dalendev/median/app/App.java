@@ -21,7 +21,7 @@ public class App {
             Pattern.compile("\\s*,\\s*")
                 .splitAsStream(line)
                 .mapToInt(Integer::parseInt)
-                .forEach(i -> rollingMedianCalculator.ingestSample(i));
+                .forEach(rollingMedianCalculator::ingestSample);
         }
 
         System.out.println(rollingMedianCalculator.calculateMedian());
