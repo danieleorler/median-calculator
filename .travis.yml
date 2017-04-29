@@ -1,0 +1,9 @@
+language: java
+env:
+  - JDK=oraclejdk8
+  - JDK=openjdk8
+dist: trusty
+before_script:
+  - jdk_switcher use $JDK
+after_success:
+  - mvn clean test -Pcoverage jacoco:report coveralls:report
