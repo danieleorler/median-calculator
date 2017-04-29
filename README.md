@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danieleorler/median-calculator.svg?branch=master)](https://travis-ci.org/danieleorler/median-calculator)
+[![Coverage Status](https://coveralls.io/repos/github/danieleorler/median-calculator/badge.svg?branch=master)](https://coveralls.io/github/danieleorler/median-calculator?branch=master)
 # median-calculator
 
 ## Description
