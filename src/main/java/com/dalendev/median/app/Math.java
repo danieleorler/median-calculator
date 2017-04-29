@@ -19,8 +19,6 @@ public class Math {
             return histogram.getMin();
         }
 
-        System.out.println(histogram.getPopulation());
-
         final Integer population = histogram.getPopulation();
         final Integer medianPos = population/2 + 1;
 

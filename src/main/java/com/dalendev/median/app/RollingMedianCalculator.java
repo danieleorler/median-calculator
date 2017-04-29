@@ -1,7 +1,5 @@
 package com.dalendev.median.app;
 
-import java.util.stream.IntStream;
-
 /**
  * @author daniele.orler
  */
@@ -13,8 +11,11 @@ public class RollingMedianCalculator {
         this.histogram = histogram;
     }
 
-    public Integer calculateMedian(IntStream stream) {
-        stream.forEach(i -> histogram.addKey(i));
+    public void ingestSample(Integer sample) {
+        histogram.addKey(sample);
+    }
+
+    public Integer calculateMedian() {
         Integer median = Math.findMedian(histogram);
         return median;
     }
